@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour {
 
     // Reference to Rigidbody Component: "rb"
     public Rigidbody rb;
+    public PlayerMovement movement;
 
     // Creates Variable for Forward Movement of Player, that Can Be Accessed From Unity
     public float forwardForce = 200f;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (rb.position.y < 0.75) {
+            movement.enabled = false;
             FindObjectOfType<GameManager>().EndGame();
         }
     }
